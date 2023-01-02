@@ -7,6 +7,7 @@ from tkinter import ttk
 class App():
     def __init__(self,master):
         super().__init__()
+
         self.user_frame = ttk.LabelFrame(master)
         self.user_frame.grid(row=0,column=0,padx=20,pady=20,ipadx=10,ipady=10)
 
@@ -29,6 +30,12 @@ class App():
         print(number_of_page_views.text)
         number_of_deviations = soup.select(selector='.bdzzI span')[1]
         print(number_of_deviations.text)
+
+        self.show_user_details(number_of_watchers.text,number_of_page_views.text,number_of_deviations.text)
+
+    def show_user_details(self,no_watchers,no_page_views,no_deviations):
+        self.user_details_label = ttk.Label(self.user_frame,text=f'User Name: {no_watchers}\nPage Views: {no_page_views}\n Deviations: {no_deviations}')
+        self.user_details_label.grid(row=2,column=0,columnspan=2)
 
 if __name__=='__main__':
     root = tk.Tk()

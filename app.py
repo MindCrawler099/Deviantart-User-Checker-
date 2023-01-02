@@ -17,7 +17,7 @@ class App():
         self.username_entry = ttk.Entry(self.user_frame)
         self.username_entry.grid(row=0,column=1,padx=30,pady=10,columnspan=1,sticky='EW')
 
-        self.check_button = ttk.Button(self.user_frame,text='Check',command=lambda:self.search_user_details(self.username_entry.get()))
+        self.check_button = ttk.Button(self.user_frame,text='Check Details',command=lambda:self.search_user_details(self.username_entry.get()))
         self.check_button.grid(row=4,column=0,columnspan=3,padx=30,pady=10)
 
     def search_user_details(self,username):

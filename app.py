@@ -19,7 +19,14 @@ class App():
     def search_user_details(self,username):
         user_homepage_url = f'https://www.deviantart.com/{username}'
         user_homepage_source_code = requests.get(user_homepage_url).text
-        print(user_homepage_source_code)
+        
+        soup = BeautifulSoup(markup=user_homepage_source_code,features='lxml')
+        number_of_watchers = soup.select(selector='.bdzzI span')[0]
+        print(number_of_watchers.text)
+        number_of_page_views = soup.select(selector='.bdzzI ._1QXgq')[0]
+        print(number_of_page_views.text)
+        number_of_deviations = soup.select(selector='.bdzzI span')[1]
+        print(number_of_deviations.text)
 
 if __name__=='__main__':
     root = tk.Tk()
